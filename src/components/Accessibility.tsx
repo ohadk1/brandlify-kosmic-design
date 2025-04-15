@@ -45,7 +45,8 @@ const Accessibility = () => {
   return (
     <>
       {highContrast && (
-        <style jsx global>{`
+        <style dangerouslySetInnerHTML={{
+          __html: `
           body.high-contrast {
             background-color: #000 !important;
             color: #fff !important;
@@ -71,7 +72,7 @@ const Accessibility = () => {
           body.high-contrast img {
             filter: grayscale(100%) contrast(120%);
           }
-        `}</style>
+        `}} />
       )}
 
       <div className="accessibility-container fixed bottom-5 right-5 z-50">
