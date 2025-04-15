@@ -1,0 +1,331 @@
+
+import React, { useEffect, useState } from 'react';
+import Navigation from '@/components/Navigation';
+import Footer from '@/components/Footer';
+import Accessibility from '@/components/Accessibility';
+import { Link } from 'react-router-dom';
+import { ExternalLink, ArrowLeft } from 'lucide-react';
+import { cn } from '@/lib/utils';
+
+// Sample portfolio data
+const portfolioItems = [
+  {
+    id: 1,
+    title: 'עיצוב אתר למשרד עורכי דין',
+    category: 'web',
+    image: 'https://via.placeholder.com/800x600/0D1117/FFFFFF?text=אתר+משרד+עורכי+דין',
+    description: 'אתר תדמית מודרני למשרד עורכי דין עם ממשק ניהול לקוחות מתקדם',
+    tags: ['עיצוב אתר', 'UI/UX', 'תדמית'],
+  },
+  {
+    id: 2,
+    title: 'מיתוג לעסק קמעונאי',
+    category: 'logo',
+    image: 'https://via.placeholder.com/800x600/0D1117/FFFFFF?text=מיתוג+לעסק+קמעונאי',
+    description: 'עיצוב לוגו ומיתוג מלא לרשת חנויות אופנה',
+    tags: ['מיתוג', 'לוגו', 'קמעונאות'],
+  },
+  {
+    id: 3,
+    title: 'דף נחיתה למוצר טכנולוגי',
+    category: 'landing',
+    image: 'https://via.placeholder.com/800x600/0D1117/FFFFFF?text=דף+נחיתה+טכנולוגי',
+    description: 'דף נחיתה אינטראקטיבי להשקת מוצר טכנולוגי חדשני',
+    tags: ['דף נחיתה', 'UX/UI', 'טכנולוגיה'],
+  },
+  {
+    id: 4,
+    title: 'חנות אונליין לתכשיטים',
+    category: 'web',
+    image: 'https://via.placeholder.com/800x600/0D1117/FFFFFF?text=חנות+תכשיטים',
+    description: 'פיתוח חנות אינטרנטית מותאמת אישית עם מערכת סליקה מאובטחת',
+    tags: ['חנות אונליין', 'UI/UX', 'מסחר אלקטרוני'],
+  },
+  {
+    id: 5,
+    title: 'לוגו למסעדה איטלקית',
+    category: 'logo',
+    image: 'https://via.placeholder.com/800x600/0D1117/FFFFFF?text=לוגו+מסעדה',
+    description: 'עיצוב לוגו בהשראה איטלקית אותנטית למסעדה יוקרתית',
+    tags: ['לוגו', 'מיתוג', 'מסעדנות'],
+  },
+  {
+    id: 6,
+    title: 'דף נחיתה לאפליקציה',
+    category: 'landing',
+    image: 'https://via.placeholder.com/800x600/0D1117/FFFFFF?text=דף+נחיתה+אפליקציה',
+    description: 'עיצוב דף נחיתה דינמי להורדת אפליקציה חדשה',
+    tags: ['דף נחיתה', 'אפליקציה', 'שיווק'],
+  },
+  {
+    id: 7,
+    title: 'אתר תדמית לחברת נדל״ן',
+    category: 'web',
+    image: 'https://via.placeholder.com/800x600/0D1117/FFFFFF?text=אתר+נדלן',
+    description: 'אתר מודרני לחברת נדל״ן עם ממשק חיפוש נכסים ואזור אישי',
+    tags: ['אתר תדמית', 'נדל״ן', 'UI/UX'],
+  },
+  {
+    id: 8,
+    title: 'לוגו לחברת היי-טק',
+    category: 'logo',
+    image: 'https://via.placeholder.com/800x600/0D1117/FFFFFF?text=לוגו+הייטק',
+    description: 'עיצוב זהות מותג לחברת סטארט-אפ בתחום הסייבר',
+    tags: ['לוגו', 'מיתוג', 'טכנולוגיה'],
+  },
+  {
+    id: 9,
+    title: 'קמפיין פרסומי',
+    category: 'landing',
+    image: 'https://via.placeholder.com/800x600/0D1117/FFFFFF?text=קמפיין+פרסומי',
+    description: 'עיצוב סדרת דפי נחיתה עבור קמפיין פרסומי מקיף',
+    tags: ['קמפיין', 'פרסום', 'המרות'],
+  },
+];
+
+const PortfolioPage = () => {
+  useEffect(() => {
+    document.title = 'עבודות נבחרות - BRANDLIFY';
+  }, []);
+
+  const [filter, setFilter] = useState('all');
+  const [selectedItem, setSelectedItem] = useState<number | null>(null);
+
+  const filteredItems = filter === 'all' 
+    ? portfolioItems 
+    : portfolioItems.filter(item => item.category === filter);
+    
+  const selectedProject = selectedItem !== null
+    ? portfolioItems.find(item => item.id === selectedItem)
+    : null;
+
+  return (
+    <div className="min-h-screen relative bg-space-dark">
+      <Navigation />
+      
+      <main>
+        {/* Hero section */}
+        <section className="pt-32 pb-20 relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-space-purple/20 to-space-dark z-0"></div>
+          
+          <div className="container mx-auto px-6 relative z-10">
+            <div className="max-w-3xl">
+              <h1 className="text-4xl md:text-5xl font-bold mb-6 font-rubik leading-tight">
+                <span className="text-white">העבודות</span>
+                <span className="gradient-text block">הנבחרות שלנו</span>
+              </h1>
+              
+              <p className="text-xl text-gray-300 mb-8 leading-relaxed">
+                צפו באוסף מגוון של פרויקטים שהשלמנו - אתרים, לוגואים ודפי נחיתה. בכל פרויקט, אנו משלבים יצירתיות, פונקציונליות ותשומת לב לפרטים.
+              </p>
+            </div>
+          </div>
+        </section>
+        
+        {/* Portfolio Grid */}
+        <section className="py-10 relative">
+          <div className="container mx-auto px-6">
+            <div className="flex justify-center mb-12">
+              <nav className="glass-card inline-flex p-1 rounded-full">
+                <button
+                  onClick={() => setFilter('all')}
+                  className={cn(
+                    "px-5 py-2 rounded-full text-sm font-medium transition-colors",
+                    filter === 'all' 
+                      ? "bg-gradient-to-r from-space-turquoise to-space-purple text-white" 
+                      : "text-white hover:text-space-turquoise"
+                  )}
+                >
+                  הכל
+                </button>
+                <button
+                  onClick={() => setFilter('web')}
+                  className={cn(
+                    "px-5 py-2 rounded-full text-sm font-medium transition-colors",
+                    filter === 'web' 
+                      ? "bg-gradient-to-r from-space-turquoise to-space-purple text-white" 
+                      : "text-white hover:text-space-turquoise"
+                  )}
+                >
+                  אתרים
+                </button>
+                <button
+                  onClick={() => setFilter('logo')}
+                  className={cn(
+                    "px-5 py-2 rounded-full text-sm font-medium transition-colors",
+                    filter === 'logo' 
+                      ? "bg-gradient-to-r from-space-turquoise to-space-purple text-white" 
+                      : "text-white hover:text-space-turquoise"
+                  )}
+                >
+                  לוגואים
+                </button>
+                <button
+                  onClick={() => setFilter('landing')}
+                  className={cn(
+                    "px-5 py-2 rounded-full text-sm font-medium transition-colors",
+                    filter === 'landing' 
+                      ? "bg-gradient-to-r from-space-turquoise to-space-purple text-white" 
+                      : "text-white hover:text-space-turquoise"
+                  )}
+                >
+                  דפי נחיתה
+                </button>
+              </nav>
+            </div>
+            
+            {selectedItem === null ? (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {filteredItems.map((item) => (
+                  <div 
+                    key={item.id} 
+                    className="glass-card overflow-hidden group cursor-pointer transition-transform hover:scale-[1.02]"
+                    onClick={() => setSelectedItem(item.id)}
+                  >
+                    <div className="h-64 overflow-hidden">
+                      <img 
+                        src={item.image} 
+                        alt={item.title}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      />
+                    </div>
+                    
+                    <div className="p-6">
+                      <h3 className="text-xl font-bold mb-3 text-white">{item.title}</h3>
+                      <p className="text-gray-300 mb-4">{item.description}</p>
+                      
+                      <div className="flex flex-wrap gap-2 mt-4">
+                        {item.tags.map((tag, index) => (
+                          <span 
+                            key={index}
+                            className="text-xs py-1 px-3 rounded-full bg-space-dark/50 text-gray-300"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div className="glass-card p-6 md:p-10">
+                <button 
+                  onClick={() => setSelectedItem(null)}
+                  className="text-space-turquoise hover:text-white transition-colors flex items-center mb-8"
+                >
+                  <ArrowLeft className="ml-2 w-5 h-5" />
+                  חזרה לכל הפרויקטים
+                </button>
+                
+                {selectedProject && (
+                  <div>
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+                      <div>
+                        <img 
+                          src={selectedProject.image} 
+                          alt={selectedProject.title}
+                          className="w-full rounded-lg shadow-lg"
+                        />
+                      </div>
+                      
+                      <div>
+                        <h2 className="text-3xl font-bold mb-4 text-white">{selectedProject.title}</h2>
+                        
+                        <p className="text-gray-300 mb-6">{selectedProject.description}</p>
+                        
+                        <div className="mb-6">
+                          <h3 className="text-xl font-bold mb-3 text-white">אודות הפרויקט</h3>
+                          <p className="text-gray-300">
+                            זהו טקסט לדוגמה על הפרויקט, במקרה אמיתי יהיה כאן תיאור מפורט של האתגרים והפתרונות שיושמו בפרויקט. איך עבדנו עם הלקוח, מה היו הדרישות המיוחדות, ואיך יצרנו פתרון שעונה על הצרכים העסקיים.
+                          </p>
+                        </div>
+                        
+                        <div className="flex flex-wrap gap-2 mb-8">
+                          {selectedProject.tags.map((tag, index) => (
+                            <span 
+                              key={index}
+                              className="text-sm py-1 px-3 rounded-full bg-space-dark/70 text-gray-300"
+                            >
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+                        
+                        <a 
+                          href="#"
+                          className="inline-flex items-center gap-2 bg-gradient-to-r from-space-turquoise to-space-purple text-white font-medium py-2 px-6 rounded-lg transition-transform hover:scale-105"
+                        >
+                          צפה בפרויקט החי
+                          <ExternalLink size={18} />
+                        </a>
+                      </div>
+                    </div>
+                    
+                    <div className="mt-16">
+                      <h3 className="text-2xl font-bold mb-6 text-white">פרויקטים דומים</h3>
+                      
+                      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        {portfolioItems
+                          .filter(item => item.id !== selectedProject.id && item.category === selectedProject.category)
+                          .slice(0, 3)
+                          .map(item => (
+                            <div 
+                              key={item.id} 
+                              className="glass-card overflow-hidden cursor-pointer transition-transform hover:scale-[1.02]"
+                              onClick={() => setSelectedItem(item.id)}
+                            >
+                              <div className="h-40 overflow-hidden">
+                                <img 
+                                  src={item.image} 
+                                  alt={item.title}
+                                  className="w-full h-full object-cover"
+                                />
+                              </div>
+                              
+                              <div className="p-4">
+                                <h4 className="text-lg font-bold text-white">{item.title}</h4>
+                              </div>
+                            </div>
+                          ))}
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
+            )}
+          </div>
+        </section>
+        
+        {/* CTA */}
+        <section className="py-20 relative">
+          <div className="absolute inset-0 bg-space-dark z-0"></div>
+          
+          <div className="container mx-auto px-6 relative z-10">
+            <div className="glass-card p-10 text-center max-w-4xl mx-auto">
+              <h2 className="text-3xl font-bold mb-6 font-rubik text-white">
+                רוצה לעבוד איתנו על הפרויקט הבא שלך?
+              </h2>
+              
+              <p className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
+                אנו מתמחים ביצירת פתרונות דיגיטליים יצירתיים ומותאמים אישית. בואו ניצור משהו מדהים יחד!
+              </p>
+              
+              <Link
+                to="/contact"
+                className="bg-gradient-to-r from-space-turquoise to-space-purple text-white font-medium py-3 px-8 rounded-lg text-lg transition-transform hover:scale-105 shadow-lg"
+              >
+                נדבר על הפרויקט שלך
+              </Link>
+            </div>
+          </div>
+        </section>
+      </main>
+      
+      <Footer />
+      <Accessibility />
+    </div>
+  );
+};
+
+export default PortfolioPage;
