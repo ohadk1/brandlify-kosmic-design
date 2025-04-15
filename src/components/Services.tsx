@@ -1,26 +1,32 @@
 
 import React from 'react';
-import { Code, Palette, Layout, ArrowLeft } from 'lucide-react';
+import { Monitor, Smartphone, Palette, Code } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const servicesData = [
   {
-    icon: <Layout className="w-10 h-10 text-space-turquoise" />,
+    icon: <Monitor className="w-12 h-12 text-space-turquoise" />,
     title: 'בניית אתרים',
     description: 'עיצוב ופיתוח אתרים מותאמים לכל סוגי העסקים, בדגש על חווית משתמש ועיצוב מודרני.',
     link: '/web-design',
+    mockupImage: '/web-mockup.png',
+    mobileImage: '/web-mobile.png',
   },
   {
-    icon: <Palette className="w-10 h-10 text-space-purple" />,
+    icon: <Palette className="w-12 h-12 text-space-purple" />,
     title: 'עיצוב לוגואים',
     description: 'יצירת לוגואים ייחודיים שמשקפים את הערכים והמסרים של העסק שלך בצורה ויזואלית מרשימה.',
     link: '/logo-design',
+    mockupImage: '/logo-mockup.png',
+    mobileImage: '/logo-mobile.png',
   },
   {
-    icon: <Code className="w-10 h-10 text-space-blue" />,
+    icon: <Code className="w-12 h-12 text-space-blue" />,
     title: 'דפי נחיתה',
     description: 'בניית דפי נחיתה אפקטיביים המותאמים למטרות השיווקיות שלך, עם דגש על המרות.',
     link: '/landing-pages',
+    mockupImage: '/landing-mockup.png',
+    mobileImage: '/landing-mobile.png',
   },
 ];
 
@@ -32,22 +38,57 @@ const Services = () => {
       <div className="container mx-auto px-6 relative z-10">
         <h2 className="section-heading">השירותים שלנו</h2>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+        <div className="mt-16 space-y-32">
           {servicesData.map((service, index) => (
             <div 
               key={index}
-              className="glass-card p-8 flex flex-col transition-transform duration-300 hover:translate-y-[-5px] hover:shadow-lg"
+              className={`relative flex flex-col md:flex-row ${index % 2 === 1 ? 'md:flex-row-reverse' : ''} items-center gap-8`}
             >
-              <div className="mb-5">{service.icon}</div>
-              <h3 className="text-2xl font-bold mb-4 text-white">{service.title}</h3>
-              <p className="text-gray-300 mb-6 flex-grow">{service.description}</p>
-              <Link 
-                to={service.link}
-                className="flex items-center text-space-turquoise hover:text-white transition-colors mt-auto"
-              >
-                לפרטים נוספים
-                <ArrowLeft className="mr-2 w-5 h-5" />
-              </Link>
+              {/* Floating Title */}
+              <div className={`absolute top-0 ${index % 2 === 0 ? 'right-0' : 'left-0'} md:top-[-30px] z-20 bg-gradient-to-r from-space-purple to-space-turquoise p-1 rounded-lg shadow-xl`}>
+                <div className="bg-space-dark px-6 py-3 rounded-md flex items-center gap-3">
+                  {service.icon}
+                  <h3 className="text-2xl font-bold text-white">{service.title}</h3>
+                </div>
+              </div>
+              
+              {/* Device Mockups */}
+              <div className={`w-full md:w-2/3 relative h-[300px] md:h-[400px] ${index % 2 === 0 ? 'ml-auto' : 'mr-auto'}`}>
+                {/* Desktop Mockup */}
+                <div className="absolute z-10 w-full max-w-[500px] h-[300px] right-0 top-0 bg-space-dark rounded-lg border-2 border-space-purple/30 overflow-hidden shadow-[0_0_20px_rgba(139,92,246,0.3)]">
+                  <div className="h-6 bg-space-darkPurple flex items-center px-2">
+                    <div className="flex gap-1">
+                      <div className="w-2 h-2 rounded-full bg-red-500"></div>
+                      <div className="w-2 h-2 rounded-full bg-yellow-500"></div>
+                      <div className="w-2 h-2 rounded-full bg-green-500"></div>
+                    </div>
+                  </div>
+                  <div className="p-2 h-[calc(100%-1.5rem)] bg-gradient-to-br from-space-darkPurple to-space-dark flex items-center justify-center">
+                    <div className="text-center text-space-turquoise font-medium">תצוגת מחשב</div>
+                  </div>
+                </div>
+                
+                {/* Mobile Mockup */}
+                <div className="absolute z-20 w-[140px] h-[240px] left-0 bottom-0 md:left-10 md:bottom-0 bg-space-dark rounded-2xl border-4 border-space-turquoise/30 overflow-hidden shadow-[0_0_20px_rgba(6,182,212,0.3)]">
+                  <div className="h-4 bg-space-darkPurple flex items-center justify-center">
+                    <div className="w-20 h-2 rounded-full bg-space-dark"></div>
+                  </div>
+                  <div className="p-1 h-[calc(100%-1rem)] bg-gradient-to-br from-space-darkPurple to-space-dark flex items-center justify-center">
+                    <div className="text-center text-space-turquoise text-xs">תצוגת מובייל</div>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Description */}
+              <div className={`w-full md:w-1/3 mt-12 md:mt-0 ${index % 2 === 0 ? 'md:order-first' : ''}`}>
+                <p className="text-gray-300 leading-relaxed mb-6">{service.description}</p>
+                <Link 
+                  to={service.link}
+                  className="inline-flex items-center px-6 py-3 rounded-full bg-gradient-to-r from-space-turquoise to-space-purple text-white font-medium transition-transform hover:scale-105 shadow-lg"
+                >
+                  לפרטים נוספים
+                </Link>
+              </div>
             </div>
           ))}
         </div>
