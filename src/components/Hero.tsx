@@ -57,7 +57,7 @@ const Hero = () => {
               muted
               loop
               playsInline
-              className={`absolute inset-0 w-full h-full object-contain ${!videoLoaded ? 'hidden' : ''}`}
+              className={`absolute inset-0 w-full h-full object-contain ${!videoLoaded ? 'opacity-0' : 'opacity-100 transition-opacity duration-300'}`}
               onLoadedData={() => setVideoLoaded(true)}
               onError={() => setVideoLoaded(false)}
             >

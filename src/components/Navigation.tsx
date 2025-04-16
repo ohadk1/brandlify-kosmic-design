@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -49,7 +50,7 @@ const Navigation = () => {
               muted
               loop
               playsInline
-              className={`absolute inset-0 h-full object-contain ${!videoLoaded ? 'hidden' : ''}`}
+              className={`absolute inset-0 h-full object-contain ${!videoLoaded ? 'opacity-0' : 'opacity-100 transition-opacity duration-300'}`}
               onLoadedData={() => setVideoLoaded(true)}
               onError={() => setVideoLoaded(false)}
             >
