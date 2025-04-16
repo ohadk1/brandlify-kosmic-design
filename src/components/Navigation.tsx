@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -7,6 +6,7 @@ import { Link } from 'react-router-dom';
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [videoLoaded, setVideoLoaded] = useState(false);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -43,15 +43,30 @@ const Navigation = () => {
     )}>
       <div className="container mx-auto flex justify-between items-center">
         <Link to="/" className="flex items-center">
-          <img 
-            src="/lovable-uploads/b1aeb872-4bf4-4299-83c9-d441cbf1e0bf.png" 
-            alt="BRANDLIFY לוגו" 
-            className="h-12 md:h-14"
-          />
+          <div className="relative h-12 md:h-14">
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              className={`absolute inset-0 h-full object-contain ${!videoLoaded ? 'hidden' : ''}`}
+              onLoadedData={() => setVideoLoaded(true)}
+              onError={() => setVideoLoaded(false)}
+            >
+              <source src="/your-logo-animation.mp4" type="video/mp4" />
+            </video>
+            
+            {!videoLoaded && (
+              <img 
+                src="/lovable-uploads/b1aeb872-4bf4-4299-83c9-d441cbf1e0bf.png" 
+                alt="BRANDLIFY לוגו" 
+                className="absolute inset-0 h-full object-contain"
+              />
+            )}
+          </div>
           <span className="font-bold text-xl ml-2 font-rubik text-white">BRANDLIFY</span>
         </Link>
 
-        {/* Desktop Navigation */}
         <div className="hidden md:flex space-x-6 space-x-reverse">
           {navLinks.map((link) => (
             <Link
@@ -64,7 +79,6 @@ const Navigation = () => {
           ))}
         </div>
 
-        {/* Mobile Navigation Trigger */}
         <button
           className="md:hidden text-white focus:outline-none"
           onClick={toggleMenu}
@@ -74,7 +88,6 @@ const Navigation = () => {
         </button>
       </div>
 
-      {/* Mobile Navigation Menu */}
       <div
         className={cn(
           'fixed inset-0 bg-space-dark/95 z-40 flex flex-col items-center justify-center md:hidden transition-transform duration-300 ease-in-out',

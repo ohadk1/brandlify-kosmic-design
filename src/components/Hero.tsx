@@ -1,9 +1,11 @@
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { ArrowLeftCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Hero = () => {
+  const [videoLoaded, setVideoLoaded] = useState(false);
+
   return (
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
       {/* Background with space theme */}
@@ -49,11 +51,27 @@ const Hero = () => {
         </div>
 
         <div className="w-full md:w-1/2 flex justify-center md:justify-start animate-float">
-          <img
-            src="/lovable-uploads/b1aeb872-4bf4-4299-83c9-d441cbf1e0bf.png"
-            alt="BRANDLIFY לוגו"
-            className="w-64 h-64 md:w-96 md:h-96 object-contain"
-          />
+          <div className="relative w-64 h-64 md:w-96 md:h-96">
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              className={`absolute inset-0 w-full h-full object-contain ${!videoLoaded ? 'hidden' : ''}`}
+              onLoadedData={() => setVideoLoaded(true)}
+              onError={() => setVideoLoaded(false)}
+            >
+              <source src="/your-logo-animation.mp4" type="video/mp4" />
+            </video>
+            
+            {!videoLoaded && (
+              <img
+                src="/lovable-uploads/b1aeb872-4bf4-4299-83c9-d441cbf1e0bf.png"
+                alt="BRANDLIFY לוגו"
+                className="absolute inset-0 w-full h-full object-contain"
+              />
+            )}
+          </div>
         </div>
       </div>
 
