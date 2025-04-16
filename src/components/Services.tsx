@@ -53,32 +53,40 @@ const Services = () => {
               </div>
               
               {/* Device Mockups */}
-              <div className={`w-full md:w-2/3 relative h-[300px] md:h-[400px] ${index % 2 === 0 ? 'ml-auto' : 'mr-auto'}`}>
-                {/* Desktop Mockup */}
-                <div className="absolute z-10 w-full max-w-[500px] h-[300px] right-0 top-0 bg-space-dark rounded-lg border-2 border-space-purple/30 overflow-hidden shadow-[0_0_20px_rgba(139,92,246,0.3)]">
-                  <div className="h-6 bg-space-darkPurple flex items-center px-2">
-                    <div className="flex gap-1">
-                      <div className="w-2 h-2 rounded-full bg-red-500"></div>
-                      <div className="w-2 h-2 rounded-full bg-yellow-500"></div>
-                      <div className="w-2 h-2 rounded-full bg-green-500"></div>
-                    </div>
-                  </div>
-                  <div className="p-2 h-[calc(100%-1.5rem)] bg-gradient-to-br from-space-darkPurple to-space-dark flex items-center justify-center">
-                    <div className="text-center text-space-turquoise font-medium">תצוגת מחשב</div>
-                  </div>
-                </div>
-                
-                {/* Mobile Mockup */}
-                <div className="absolute z-20 w-[140px] h-[240px] left-0 bottom-0 md:left-10 md:bottom-0 bg-space-dark rounded-2xl border-4 border-space-turquoise/30 overflow-hidden shadow-[0_0_20px_rgba(6,182,212,0.3)]">
-                  <div className="h-4 bg-space-darkPurple flex items-center justify-center">
-                    <div className="w-20 h-2 rounded-full bg-space-dark"></div>
-                  </div>
-                  <div className="p-1 h-[calc(100%-1rem)] bg-gradient-to-br from-space-darkPurple to-space-dark flex items-center justify-center">
-                    <div className="text-center text-space-turquoise text-xs">תצוגת מובייל</div>
-                  </div>
-                </div>
-              </div>
-              
+<div className={`w-full md:w-2/3 relative h-auto md:h-[400px] flex flex-col items-center md:block`}>
+  {/* Desktop Mockup */}
+  <div className="relative md:absolute z-10 w-full max-w-[500px] h-[200px] md:h-[300px] md:right-0 md:top-0 bg-space-dark rounded-lg border-2 border-space-purple/30 overflow-hidden shadow-[0_0_20px_rgba(139,92,246,0.3)] mt-4 md:mt-0">
+    <div className="h-6 bg-space-darkPurple flex items-center px-2">
+      <div className="flex gap-1">
+        <div className="w-2 h-2 rounded-full bg-red-500"></div>
+        <div className="w-2 h-2 rounded-full bg-yellow-500"></div>
+        <div className="w-2 h-2 rounded-full bg-green-500"></div>
+      </div>
+    </div>
+    <div className="h-[calc(100%-1.5rem)]">
+      <img
+        src={service.mockupImage}
+        alt={`${service.title} mockup`}
+        className="object-cover w-full h-full"
+      />
+    </div>
+  </div>
+
+  {/* Mobile Mockup */}
+  <div className="relative md:absolute z-20 w-[140px] h-[240px] md:left-10 md:bottom-0 bg-space-dark rounded-2xl border-4 border-space-turquoise/30 overflow-hidden shadow-[0_0_20px_rgba(6,182,212,0.3)] mt-6 md:mt-0">
+    <div className="h-4 bg-space-darkPurple flex items-center justify-center">
+      <div className="w-20 h-2 rounded-full bg-space-dark"></div>
+    </div>
+    <div className="h-[calc(100%-1rem)]">
+      <img
+        src={service.mobileImage}
+        alt={`${service.title} mobile`}
+        className="object-cover w-full h-full"
+      />
+    </div>
+  </div>
+</div>
+
               {/* Description */}
               <div className={`w-full md:w-1/3 mt-12 md:mt-0 ${index % 2 === 0 ? 'md:order-first' : ''}`}>
                 <p className="text-gray-300 leading-relaxed mb-6">{service.description}</p>
