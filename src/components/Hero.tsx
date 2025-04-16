@@ -54,9 +54,9 @@ const Hero = () => {
             muted
             loop
             playsInline
-            className="w-64 h-64 md:w-96 md:h-96 object-contain"
+            className="w-full max-w-[500px] h-auto object-contain"
           >
-            <source src="/your-logo-animation.mp4" type="video/mp4" />
+            <source src="/your-logo-transparent.webm" type="video/webm" />
             {/* Fallback for browsers that don't support video */}
             <img
               src="/lovable-uploads/b1aeb872-4bf4-4299-83c9-d441cbf1e0bf.png"
