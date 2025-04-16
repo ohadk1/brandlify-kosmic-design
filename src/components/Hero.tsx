@@ -1,5 +1,4 @@
-
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { ArrowLeftCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -50,6 +49,7 @@ const Hero = () => {
           </Link>
         </div>
 
+        {/* Logo Animation */}
         <div className="w-full md:w-1/2 flex justify-center md:justify-start animate-float">
           <div className="relative w-64 h-64 md:w-96 md:h-96">
             <video
@@ -66,7 +66,7 @@ const Hero = () => {
             >
               <source src="/your-logo-animation.mp4" type="video/mp4" />
             </video>
-            
+
             {!videoLoaded && (
               <img
                 src="/lovable-uploads/b1aeb872-4bf4-4299-83c9-d441cbf1e0bf.png"
