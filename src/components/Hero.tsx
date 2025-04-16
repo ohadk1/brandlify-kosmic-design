@@ -59,7 +59,10 @@ const Hero = () => {
               playsInline
               className={`absolute inset-0 w-full h-full object-contain ${!videoLoaded ? 'opacity-0' : 'opacity-100 transition-opacity duration-300'}`}
               onLoadedData={() => setVideoLoaded(true)}
-              onError={() => setVideoLoaded(false)}
+              onError={(e) => {
+                console.error("Video failed to load:", e);
+                setVideoLoaded(false);
+              }}
             >
               <source src="/your-logo-animation.mp4" type="video/mp4" />
             </video>
