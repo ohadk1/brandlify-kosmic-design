@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
+
+import React from 'react';
 import { ArrowLeftCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Hero = () => {
-  const [videoLoaded, setVideoLoaded] = useState(false);
-
   return (
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
       {/* Background with space theme */}
@@ -49,32 +48,22 @@ const Hero = () => {
           </Link>
         </div>
 
-        {/* Logo Animation */}
         <div className="w-full md:w-1/2 flex justify-center md:justify-start animate-float">
-          <div className="relative w-64 h-64 md:w-96 md:h-96">
-            <video
-              autoPlay
-              muted
-              loop
-              playsInline
-              className={`absolute inset-0 w-full h-full object-contain ${!videoLoaded ? 'opacity-0' : 'opacity-100 transition-opacity duration-300'}`}
-              onLoadedData={() => setVideoLoaded(true)}
-              onError={(e) => {
-                console.error("Video failed to load:", e);
-                setVideoLoaded(false);
-              }}
-            >
-              <source src="/your-logo-animation.mp4" type="video/mp4" />
-            </video>
-
-            {!videoLoaded && (
-              <img
-                src="/lovable-uploads/b1aeb872-4bf4-4299-83c9-d441cbf1e0bf.png"
-                alt="BRANDLIFY לוגו"
-                className="absolute inset-0 w-full h-full object-contain"
-              />
-            )}
-          </div>
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="w-64 h-64 md:w-96 md:h-96 object-contain"
+          >
+            <source src="/your-logo-animation.mp4" type="video/mp4" />
+            {/* Fallback for browsers that don't support video */}
+            <img
+              src="/lovable-uploads/b1aeb872-4bf4-4299-83c9-d441cbf1e0bf.png"
+              alt="BRANDLIFY לוגו"
+              className="w-64 h-64 md:w-96 md:h-96 object-contain"
+            />
+          </video>
         </div>
       </div>
 
