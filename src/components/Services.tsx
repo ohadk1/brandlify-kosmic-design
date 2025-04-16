@@ -9,8 +9,8 @@ const servicesData = [
     title: 'בניית אתרים',
     description: 'עיצוב ופיתוח אתרים מותאמים לכל סוגי העסקים, בדגש על חווית משתמש ועיצוב מודרני.',
     link: '/web-design',
-    mockupImage: '/web-mockup.png',
-    mobileImage: '/web-mobile.png',
+    mockupImage: '/evenalevendesktop.png',
+    mobileImage: '/images/web-mobile.png', // אם אין, תשאיר ריק או תסיר
   },
   {
     icon: <Palette className="w-12 h-12 text-space-purple" />,
