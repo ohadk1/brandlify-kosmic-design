@@ -43,11 +43,21 @@ const Navigation = () => {
     )}>
       <div className="container mx-auto flex justify-between items-center">
         <Link to="/" className="flex items-center">
-          <img 
-            src="/lovable-uploads/b1aeb872-4bf4-4299-83c9-d441cbf1e0bf.png" 
-            alt="BRANDLIFY לוגו" 
+          <video 
+            autoPlay 
+            muted 
+            loop 
+            playsInline
             className="h-12 md:h-14"
-          />
+          >
+            <source src="/your-logo-animation.mp4" type="video/mp4" />
+            {/* Fallback for browsers that don't support video */}
+            <img 
+              src="/lovable-uploads/b1aeb872-4bf4-4299-83c9-d441cbf1e0bf.png" 
+              alt="BRANDLIFY לוגו" 
+              className="h-12 md:h-14"
+            />
+          </video>
           <span className="font-bold text-xl ml-2 font-rubik text-white">BRANDLIFY</span>
         </Link>
 
