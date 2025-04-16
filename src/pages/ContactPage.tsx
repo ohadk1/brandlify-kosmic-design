@@ -208,8 +208,8 @@ const ContactPage = () => {
                       </div>
                       <div>
                         <h3 className="text-white font-medium mb-1">טלפון</h3>
-                        <a href="tel:+972541234567" className="text-gray-300 hover:text-space-turquoise transition-colors">
-                          054-123-4567
+                        <a href="tel:+972522174188" className="text-gray-300 hover:text-space-turquoise transition-colors">
+                          052-217-4188
                         </a>
                       </div>
                     </div>
@@ -221,7 +221,7 @@ const ContactPage = () => {
                       <div>
                         <h3 className="text-white font-medium mb-1">וואטסאפ</h3>
                         <a 
-                          href="https://wa.me/972541234567" 
+                          href="https://wa.me/972522174188" 
                           target="_blank" 
                           rel="noopener noreferrer"
                           className="text-gray-300 hover:text-space-turquoise transition-colors"

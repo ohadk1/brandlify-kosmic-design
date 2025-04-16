@@ -93,7 +93,7 @@ const Footer = () => {
               <li className="text-gray-400">
                 <span className="block mb-1 font-medium">טלפון:</span>
                 <a href="tel:+972522174188" className="hover:text-space-turquoise transition-colors">
-                  054-123-4567
+                  052-217-4188
                 </a>
               </li>
               <li className="text-gray-400">

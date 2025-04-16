@@ -160,7 +160,7 @@ const Contact = () => {
                 <div>
                   <h4 className="text-white font-medium mb-1">טלפון</h4>
                   <a href="tel:+972522174188" className="text-gray-300 hover:text-space-turquoise transition-colors">
-                    052-2174188
+                    052-217-4188
                   </a>
                 </div>
               </div>
@@ -170,7 +170,7 @@ const Contact = () => {
                 <div>
                   <h4 className="text-white font-medium mb-1">וואטסאפ</h4>
                   <a 
-                    href="https://wa.me/972541234567" 
+                    href="https://wa.me/972522174188" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="inline-flex items-center text-gray-300 hover:text-space-turquoise transition-colors"
