@@ -43,29 +43,11 @@ const Navigation = () => {
     )}>
       <div className="container mx-auto flex justify-between items-center">
         <Link to="/" className="flex items-center">
-          <video 
-            autoPlay 
-            muted 
-            loop 
-            playsInline
+          <img 
+            src="/lovable-uploads/b1aeb872-4bf4-4299-83c9-d441cbf1e0bf.png" 
+            alt="BRANDLIFY לוגו" 
             className="h-12 md:h-14"
-            onError={(e) => {
-              console.error("Navigation video failed to load:", e);
-              const target = e.target as HTMLVideoElement;
-              target.style.display = 'none';
-              const fallbackImg = target.nextElementSibling as HTMLImageElement;
-              if (fallbackImg) fallbackImg.style.display = 'block';
-            }}
-          >
-            <source src="/your-logo-animation.mp4" type="video/mp4" />
-            {/* Fallback for browsers that don't support video */}
-            <img 
-              src="/lovable-uploads/b1aeb872-4bf4-4299-83c9-d441cbf1e0bf.png" 
-              alt="BRANDLIFY לוגו" 
-              className="h-12 md:h-14"
-              style={{ display: 'none' }}
-            />
-          </video>
+          />
           <span className="font-bold text-xl ml-2 font-rubik text-white">BRANDLIFY</span>
         </Link>
 
