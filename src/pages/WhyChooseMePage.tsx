@@ -11,7 +11,7 @@ import {
 
 const WhyChooseMePage = () => {
   useEffect(() => {
-    document.title = 'למה לבחור בי - BRANDLIFY';
+    document.title = 'למה לבחור בנו - BRANDLIFY';
   }, []);
 
   const benefits = [

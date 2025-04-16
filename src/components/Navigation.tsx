@@ -33,7 +33,7 @@ const Navigation = () => {
     { name: 'בניית אתרים', path: '/web-design' },
     { name: 'עיצוב לוגואים', path: '/logo-design' },
     { name: 'עבודות נבחרות', path: '/portfolio' },
-    { name: 'למה לבחור בי', path: '/why-choose-me' },
+    { name: 'למה לבחור בנו', path: '/why-choose-me' },
     { name: 'צור קשר', path: '/contact' },
   ];
 
