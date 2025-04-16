@@ -55,6 +55,13 @@ const Hero = () => {
             loop
             playsInline
             className="w-64 h-64 md:w-96 md:h-96 object-contain"
+            onError={(e) => {
+              console.error("Video failed to load:", e);
+              const target = e.target as HTMLVideoElement;
+              target.style.display = 'none';
+              const fallbackImg = target.nextElementSibling as HTMLImageElement;
+              if (fallbackImg) fallbackImg.style.display = 'block';
+            }}
           >
             <source src="/your-logo-animation.mp4" type="video/mp4" />
             {/* Fallback for browsers that don't support video */}
@@ -62,6 +69,7 @@ const Hero = () => {
               src="/lovable-uploads/b1aeb872-4bf4-4299-83c9-d441cbf1e0bf.png"
               alt="BRANDLIFY לוגו"
               className="w-64 h-64 md:w-96 md:h-96 object-contain"
+              style={{ display: 'none' }}
             />
           </video>
         </div>
