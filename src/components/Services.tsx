@@ -45,12 +45,13 @@ const Services = () => {
               className={`relative flex flex-col md:flex-row ${index % 2 === 1 ? 'md:flex-row-reverse' : ''} items-center gap-8`}
             >
               {/* Floating Title */}
-              <div className={`absolute top-0 ${index % 2 === 0 ? 'right-0' : 'left-0'} md:top-[-30px] z-20 bg-gradient-to-r from-space-purple to-space-turquoise p-1 rounded-lg shadow-xl`}>
-                <div className="bg-space-dark px-6 py-3 rounded-md flex items-center gap-3">
-                  {service.icon}
-                  <h3 className="text-2xl font-bold text-white">{service.title}</h3>
-                </div>
-              </div>
+<div className={`absolute -top-10 md:top-[-30px] ${index % 2 === 0 ? 'right-0' : 'left-0'} z-20 bg-gradient-to-r from-space-purple to-space-turquoise p-1 rounded-lg shadow-xl`}>
+  <div className="bg-space-dark px-6 py-3 rounded-md flex items-center gap-3">
+    {service.icon}
+    <h3 className="text-2xl font-bold text-white">{service.title}</h3>
+  </div>
+</div>
+
               
               {/* Device Mockups */}
 <div className={`w-full md:w-2/3 relative h-auto md:h-[400px] flex flex-col items-center md:block`}>
