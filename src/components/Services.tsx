@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Monitor, Smartphone, Palette, Code } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -22,7 +23,7 @@ const servicesData = [
   {
     icon: <Palette className="w-12 h-12 text-space-purple" />,
     title: 'עיצוב לוגואים',
-    description: 'יצירת לוגואים ייחודיים שמשקפי�� את הערכים והמסרים של העסק שלך בצורה ויזואלית מרשימה.',
+    description: 'יצירת לוגואים ייחודיים שמשקפים את הערכים והמסרים של העסק שלך בצורה ויזואלית מרשימה.',
     link: '/logo-design',
     logoImages: [
       '/lovable-uploads/728e1aba-f9f9-4b90-839f-bca47ec6d337.png',
