@@ -27,8 +27,8 @@ const servicesData = [
     link: '/logo-design',
     logoImages: [
       '/elevenhousefix.webp', 
-      '/idologo.webp', 
-      '/MOELOGO.webp'
+      '/digituse2fix.webp', 
+      '/healthfitsfix2.webp'
     ],
   },
 ];
