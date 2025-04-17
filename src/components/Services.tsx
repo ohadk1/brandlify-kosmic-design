@@ -10,7 +10,7 @@ const servicesData = [
     description: 'עיצוב ופיתוח אתרים מותאמים לכל סוגי העסקים, בדגש על חווית משתמש ועיצוב מודרני.',
     link: '/web-design',
     mockupImage: '/evenalevendesktop.png',
-    mobileImage: '/evenalevenmobile.png',
+    mobileImage: '/evenalevenmobile.png', // אם אין, תשאיר ריק או תסיר
   },
   {
     icon: <Code className="w-12 h-12 text-space-blue" />,
@@ -26,9 +26,9 @@ const servicesData = [
     description: 'יצירת לוגואים ייחודיים שמשקפים את הערכים והמסרים של העסק שלך בצורה ויזואלית מרשימה.',
     link: '/logo-design',
     logoImages: [
-      '/lovable-uploads/728e1aba-f9f9-4b90-839f-bca47ec6d337.png',
-      '/lovable-uploads/d0162bb1-61e6-4898-be1e-690605167f76.png',
-      '/lovable-uploads/ea6aa2d8-3c2d-4a82-85a6-b1c9276449c2.png'
+      '/elevenhousefix.webp', 
+      '/idologo.webp', 
+      '/MOELOGO.webp'
     ],
   },
 ];
