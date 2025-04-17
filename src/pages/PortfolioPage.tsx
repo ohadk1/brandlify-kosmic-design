@@ -239,7 +239,7 @@ const PortfolioPage = () => {
                   >
                     <div className="h-64 overflow-hidden">
                       <img 
-                        src={item.image} 
+                        src="/digituse2fix.webp"
                         alt={item.title}
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                       />
