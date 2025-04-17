@@ -9,7 +9,7 @@ const portfolioItems = [
     id: 1,
     title: 'Digituse - Digital Marketing',
     category: 'logo',
-    image: '/lovable-uploads/728e1aba-f9f9-4b90-839f-bca47ec6d337.png',
+    image: '/digituse2fix.webp',
     description: 'עיצוב לוגו מודרני לחברת שיווק דיגיטלי',
   },
   {
