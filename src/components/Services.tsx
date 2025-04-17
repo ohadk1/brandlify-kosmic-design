@@ -26,9 +26,9 @@ const servicesData = [
     description: 'יצירת לוגואים ייחודיים שמשקפים את הערכים והמסרים של העסק שלך בצורה ויזואלית מרשימה.',
     link: '/logo-design',
     logoImages: [
-      '/placeholder.svg', 
-      '/placeholder.svg', 
-      '/placeholder.svg'
+      '/brandlogo.webp', 
+      '/idologo.webp', 
+      '/MOELOGO.webp'
     ],
   },
 ];
