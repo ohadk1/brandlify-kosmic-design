@@ -21,7 +21,7 @@ const servicesData = [
     mobileImage: '/landing-mobile.png',
   },
   {
-    icon: <Palette className="w-14 h-12 text-space-purple" />,
+    icon: <Palette className="w-16 h-12 text-space-purple" />,
     title: 'עיצוב לוגואים',
     description: 'יצירת לוגואים ייחודיים שמשקפים את הערכים והמסרים של העסק שלך בצורה ויזואלית מרשימה.',
     link: '/logo-design',
