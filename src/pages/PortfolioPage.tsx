@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
@@ -239,7 +240,7 @@ const PortfolioPage = () => {
                   >
                     <div className="h-64 overflow-hidden">
                       <img 
-                        src="/digituse2fix.webp"
+                        src={item.image}
                         alt={item.title}
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                       />
