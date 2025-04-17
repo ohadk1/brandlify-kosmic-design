@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Monitor, Smartphone, Palette, Code } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -10,7 +9,7 @@ const servicesData = [
     description: 'עיצוב ופיתוח אתרים מותאמים לכל סוגי העסקים, בדגש על חווית משתמש ועיצוב מודרני.',
     link: '/web-design',
     mockupImage: '/evenalevendesktop.png',
-    mobileImage: '/evenalevenmobile.png', // אם אין, תשאיר ריק או תסיר
+    mobileImage: '/evenalevenmobile.png',
   },
   {
     icon: <Code className="w-12 h-12 text-space-blue" />,
@@ -23,12 +22,12 @@ const servicesData = [
   {
     icon: <Palette className="w-12 h-12 text-space-purple" />,
     title: 'עיצוב לוגואים',
-    description: 'יצירת לוגואים ייחודיים שמשקפים את הערכים והמסרים של העסק שלך בצורה ויזואלית מרשימה.',
+    description: 'יצירת לוגואים ייחודיים שמשקפי�� את הערכים והמסרים של העסק שלך בצורה ויזואלית מרשימה.',
     link: '/logo-design',
     logoImages: [
-      '/brandlogo.webp', 
-      '/idologo.webp', 
-      '/MOELOGO.webp'
+      '/lovable-uploads/728e1aba-f9f9-4b90-839f-bca47ec6d337.png',
+      '/lovable-uploads/d0162bb1-61e6-4898-be1e-690605167f76.png',
+      '/lovable-uploads/ea6aa2d8-3c2d-4a82-85a6-b1c9276449c2.png'
     ],
   },
 ];

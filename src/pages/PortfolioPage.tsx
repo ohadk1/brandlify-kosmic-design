@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
@@ -11,6 +10,62 @@ import { cn } from '@/lib/utils';
 const portfolioItems = [
   {
     id: 1,
+    title: 'Digituse - Digital Marketing',
+    category: 'logo',
+    image: '/lovable-uploads/728e1aba-f9f9-4b90-839f-bca47ec6d337.png',
+    description: 'עיצוב לוגו מודרני לחברת שיווק דיגיטלי, המשלב אייקון ייחודי עם טיפוגרפיה נקייה',
+    tags: ['לוגו', 'מיתוג', 'שיווק דיגיטלי'],
+  },
+  {
+    id: 2,
+    title: 'Digituse - Variant',
+    category: 'logo',
+    image: '/lovable-uploads/027ddc50-1fac-435e-b043-51b0bca9f890.png',
+    description: 'גרסה נוספת של לוגו Digituse המשלבת אלמנטים של טביעת אצבע וצמיחה',
+    tags: ['לוגו', 'מיתוג', 'וריאציה'],
+  },
+  {
+    id: 3,
+    title: 'Eleven House',
+    category: 'logo',
+    image: '/lovable-uploads/d0162bb1-61e6-4898-be1e-690605167f76.png',
+    description: 'לוגו יוקרתי לחברת נדל"ן המשלב אלמנטים ארכיטקטוניים בצבע זהב',
+    tags: ['לוגו', 'מיתוג', 'נדל"ן'],
+  },
+  {
+    id: 4,
+    title: 'Health Fits - Sport Shop',
+    category: 'logo',
+    image: '/lovable-uploads/1b5acbcc-15bd-4862-8c3e-5f16df02540e.png',
+    description: 'לוגו לחנות ספורט המשלב מגן וספורטאי בעיצוב דינמי',
+    tags: ['לוגו', 'מיתוג', 'ספורט'],
+  },
+  {
+    id: 5,
+    title: 'Health Fits - Variant',
+    category: 'logo',
+    image: '/lovable-uploads/58440378-0467-4120-b559-4928877cbb66.png',
+    description: 'גרסה נוספת של לוגו Health Fits המשלבת אלמנטים של כושר וספורט',
+    tags: ['לוגו', 'מיתוג', 'כושר'],
+  },
+  {
+    id: 6,
+    title: 'O.C Crown Jewelry',
+    category: 'logo',
+    image: '/lovable-uploads/927927fa-5ff6-4272-a5df-ff988563c12e.png',
+    description: 'לוגו יוקרתי לחנות תכשיטים המשלב כתר ויהלום בצבעי זהב',
+    tags: ['לוגו', 'מיתוג', 'תכשיטים'],
+  },
+  {
+    id: 7,
+    title: 'Sea-Port',
+    category: 'logo',
+    image: '/lovable-uploads/ea6aa2d8-3c2d-4a82-85a6-b1c9276449c2.png',
+    description: 'לוגו לחברת ספנות המשלב אלמנטים ימיים ומכולת משא',
+    tags: ['לוגו', 'מיתוג', 'ספנות'],
+  },
+  {
+    id: 8,
     title: 'עיצוב אתר למשרד עורכי דין',
     category: 'web',
     image: 'https://via.placeholder.com/800x600/0D1117/FFFFFF?text=אתר+משרד+עורכי+דין',
@@ -18,7 +73,7 @@ const portfolioItems = [
     tags: ['עיצוב אתר', 'UI/UX', 'תדמית'],
   },
   {
-    id: 2,
+    id: 9,
     title: 'מיתוג לעסק קמעונאי',
     category: 'logo',
     image: 'https://via.placeholder.com/800x600/0D1117/FFFFFF?text=מיתוג+לעסק+קמעונאי',
@@ -26,7 +81,7 @@ const portfolioItems = [
     tags: ['מיתוג', 'לוגו', 'קמעונאות'],
   },
   {
-    id: 3,
+    id: 10,
     title: 'דף נחיתה למוצר טכנולוגי',
     category: 'landing',
     image: 'https://via.placeholder.com/800x600/0D1117/FFFFFF?text=דף+נחיתה+טכנולוגי',
@@ -34,7 +89,7 @@ const portfolioItems = [
     tags: ['דף נחיתה', 'UX/UI', 'טכנולוגיה'],
   },
   {
-    id: 4,
+    id: 11,
     title: 'חנות אונליין לתכשיטים',
     category: 'web',
     image: 'https://via.placeholder.com/800x600/0D1117/FFFFFF?text=חנות+תכשיטים',
@@ -42,7 +97,7 @@ const portfolioItems = [
     tags: ['חנות אונליין', 'UI/UX', 'מסחר אלקטרוני'],
   },
   {
-    id: 5,
+    id: 12,
     title: 'לוגו למסעדה איטלקית',
     category: 'logo',
     image: 'https://via.placeholder.com/800x600/0D1117/FFFFFF?text=לוגו+מסעדה',
@@ -50,7 +105,7 @@ const portfolioItems = [
     tags: ['לוגו', 'מיתוג', 'מסעדנות'],
   },
   {
-    id: 6,
+    id: 13,
     title: 'דף נחיתה לאפליקציה',
     category: 'landing',
     image: 'https://via.placeholder.com/800x600/0D1117/FFFFFF?text=דף+נחיתה+אפליקציה',
@@ -58,7 +113,7 @@ const portfolioItems = [
     tags: ['דף נחיתה', 'אפליקציה', 'שיווק'],
   },
   {
-    id: 7,
+    id: 14,
     title: 'אתר תדמית לחברת נדל״ן',
     category: 'web',
     image: 'https://via.placeholder.com/800x600/0D1117/FFFFFF?text=אתר+נדלן',
@@ -66,7 +121,7 @@ const portfolioItems = [
     tags: ['אתר תדמית', 'נדל״ן', 'UI/UX'],
   },
   {
-    id: 8,
+    id: 15,
     title: 'לוגו לחברת היי-טק',
     category: 'logo',
     image: 'https://via.placeholder.com/800x600/0D1117/FFFFFF?text=לוגו+הייטק',
@@ -74,7 +129,7 @@ const portfolioItems = [
     tags: ['לוגו', 'מיתוג', 'טכנולוגיה'],
   },
   {
-    id: 9,
+    id: 16,
     title: 'קמפיין פרסומי',
     category: 'landing',
     image: 'https://via.placeholder.com/800x600/0D1117/FFFFFF?text=קמפיין+פרסומי',
