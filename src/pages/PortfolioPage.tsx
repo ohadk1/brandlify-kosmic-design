@@ -238,15 +238,21 @@ const PortfolioPage = () => {
                   className="glass-card overflow-hidden group cursor-pointer transition-transform hover:scale-[1.02] relative"
                   onClick={() => setSelectedItem(item.id)}
                 >
-                  {/* תמונה */}
-                  <img 
-                    src={item.image}
-                    alt={item.title}
-                    className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
+                  {/* עטיפה מיוחדת על התמונה עם אפקטי glow */}
+                  <div className="relative w-full h-64 overflow-hidden">
+                    {/* תמונה */}
+                    <img 
+                      src={item.image}
+                      alt={item.title}
+                      className="w-full h-full object-cover transition-all duration-500 group-hover:scale-110 group-hover:brightness-75"
+                    />
                 
-                  {/* שכבת טקסט נעלמת שמתגלה ב-hover */}
-                  <div className="absolute inset-0 bg-black bg-opacity-60 flex flex-col justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 p-6">
+                    {/* Glow effect */}
+                    <div className="absolute inset-0 rounded-lg pointer-events-none opacity-0 group-hover:opacity-100 transition duration-500 shadow-[0_0_25px_5px_rgba(94,234,212,0.5)]"></div>
+                  </div>
+                
+                  {/* שכבת טקסט עם קפיצה */}
+                  <div className="absolute inset-0 flex flex-col justify-center items-center opacity-0 group-hover:opacity-100 transition-all duration-500 p-6 translate-y-10 group-hover:translate-y-0">
                     <h3 className="text-xl font-bold mb-3 text-white text-center">{item.title}</h3>
                     <p className="text-gray-300 mb-4 text-center">{item.description}</p>
                 
@@ -262,7 +268,6 @@ const PortfolioPage = () => {
                     </div>
                   </div>
                 </div>
-                
                 ))}
               </div>
             ) : (
