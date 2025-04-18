@@ -234,34 +234,35 @@ const PortfolioPage = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {filteredItems.map((item) => (
                   <div 
-                    key={item.id} 
-                    className="glass-card overflow-hidden group cursor-pointer transition-transform hover:scale-[1.02]"
-                    onClick={() => setSelectedItem(item.id)}
-                  >
-                    <div className="h-64 overflow-hidden">
-                      <img 
-                        src={item.image}
-                        alt={item.title}
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                      />
-                    </div>
-                    
-                    <div className="p-6">
-                      <h3 className="text-xl font-bold mb-3 text-white">{item.title}</h3>
-                      <p className="text-gray-300 mb-4">{item.description}</p>
-                      
-                      <div className="flex flex-wrap gap-2 mt-4">
-                        {item.tags.map((tag, index) => (
-                          <span 
-                            key={index}
-                            className="text-xs py-1 px-3 rounded-full bg-space-dark/50 text-gray-300"
-                          >
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
+                  key={item.id}
+                  className="glass-card overflow-hidden group cursor-pointer transition-transform hover:scale-[1.02] relative"
+                  onClick={() => setSelectedItem(item.id)}
+                >
+                  {/* תמונה */}
+                  <img 
+                    src={item.image}
+                    alt={item.title}
+                    className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                
+                  {/* שכבת טקסט נעלמת שמתגלה ב-hover */}
+                  <div className="absolute inset-0 bg-black bg-opacity-60 flex flex-col justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 p-6">
+                    <h3 className="text-xl font-bold mb-3 text-white text-center">{item.title}</h3>
+                    <p className="text-gray-300 mb-4 text-center">{item.description}</p>
+                
+                    <div className="flex flex-wrap gap-2 mt-4 justify-center">
+                      {item.tags.map((tag, index) => (
+                        <span 
+                          key={index}
+                          className="text-xs py-1 px-3 rounded-full bg-space-dark/50 text-gray-300"
+                        >
+                          {tag}
+                        </span>
+                      ))}
                     </div>
                   </div>
+                </div>
+                
                 ))}
               </div>
             ) : (
