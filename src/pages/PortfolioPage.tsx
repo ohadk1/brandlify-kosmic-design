@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
@@ -233,45 +232,43 @@ const PortfolioPage = () => {
             {selectedItem === null ? (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {filteredItems.map((item) => (
-  <div 
-    key={item.id}
-    onClick={() => setSelectedItem(item.id)}
-    className="glass-card overflow-hidden group cursor-pointer transition-transform duration-300 active:scale-95 hover:scale-105 relative"
-  >
-    {/* עטיפה על התמונה */}
-    <div className="relative w-full h-64 overflow-hidden">
-      {/* תמונה */}
-      <img 
-        src={item.image}
-        alt={item.title}
-        className="w-full h-full object-cover transition-all duration-700 ease-in-out transform group-hover:scale-110 group-hover:brightness-75"
-      />
+                  <div 
+                    key={item.id}
+                    onClick={() => setSelectedItem(item.id)}
+                    className="glass-card overflow-hidden group cursor-pointer transition-transform duration-300 active:scale-95 hover:scale-105 relative"
+                  >
+                    {/* עטיפה על התמונה */}
+                    <div className="relative w-full h-64 overflow-hidden">
+                      {/* תמונה */}
+                      <img 
+                        src={item.image}
+                        alt={item.title}
+                        className="w-full h-full object-cover transition-all duration-700 ease-in-out transform group-hover:scale-110 group-hover:brightness-75"
+                      />
 
-      {/* Glow דו-צבעוני */}
-      <div className="absolute inset-0 rounded-lg pointer-events-none opacity-0 group-hover:opacity-100 transition duration-500">
-        <div className="w-full h-full bg-gradient-to-br from-space-turquoise via-transparent to-space-purple blur-2xl opacity-40"></div>
-      </div>
-    </div>
+                      {/* Glow דו-צבעוני */}
+                      <div className="absolute inset-0 rounded-lg pointer-events-none opacity-0 group-hover:opacity-100 transition duration-500">
+                        <div className="w-full h-full bg-gradient-to-br from-space-turquoise via-transparent to-space-purple blur-2xl opacity-40"></div>
+                      </div>
+                    </div>
 
-    {/* שכבת טקסט שמתגלה ב-hover */}
-    <div className="absolute inset-0 flex flex-col justify-center items-center opacity-0 group-hover:opacity-100 transition-all duration-500 p-6 translate-y-10 group-hover:translate-y-0">
-      <h3 className="text-xl font-bold mb-3 text-white text-center">{item.title}</h3>
-      <p className="text-gray-300 mb-4 text-center">{item.description}</p>
+                    {/* שכבת טקסט שמתגלה ב-hover */}
+                    <div className="absolute inset-0 flex flex-col justify-center items-center opacity-0 group-hover:opacity-100 transition-all duration-500 p-6 translate-y-10 group-hover:translate-y-0">
+                      <h3 className="text-xl font-bold mb-3 text-white text-center">{item.title}</h3>
+                      <p className="text-gray-300 mb-4 text-center">{item.description}</p>
 
-      <div className="flex flex-wrap gap-2 mt-4 justify-center">
-        {item.tags.map((tag, index) => (
-          <span 
-            key={index}
-            className="text-xs py-1 px-3 rounded-full bg-space-dark/50 text-gray-300"
-          >
-            {tag}
-          </span>
-        ))}
-      </div>
-    </div>
-  </div>
-))}
-
+                      <div className="flex flex-wrap gap-2 mt-4 justify-center">
+                        {item.tags.map((tag, index) => (
+                          <span 
+                            key={index}
+                            className="text-xs py-1 px-3 rounded-full bg-space-dark/50 text-gray-300"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
                 ))}
               </div>
             ) : (
